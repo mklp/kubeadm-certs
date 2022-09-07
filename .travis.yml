@@ -37,7 +37,7 @@ script:
         git checkout -b $t $t
         git branch
 
-        sed -i 's#time.Hour \* 24 \* 365#time.Hour * 24 * 365 * 10#g'  cmd/kubeadm/app/constants/constants.go
+        sed -i 's#time.Hour \* 24 \* 365#time.Hour * 24 * 365 * 99#g'  cmd/kubeadm/app/constants/constants.go
         grep -n -R CertificateValidity ./*
         grep -n -R duration365d ./*
 
@@ -97,7 +97,7 @@ deploy:
   tag_name: "${kube_tag}"
   file: "$GOPATH/src/k8s.io/kubernetes/_output/kubeadm-*"
   file_glob: "true"
-  release_notes: "Set the validity period of the kubeadm certificate to 10 years.  \n source: https://github.com/kubernetes/kubernetes/releases/tag/${kube_tag}"
+  release_notes: "Set the validity period of the kubeadm certificate to 99 years.  \n source: https://github.com/kubernetes/kubernetes/releases/tag/${kube_tag}"
   skip_cleanup: true
   overwrite: true
   edge: true # opt in to dpl v2
