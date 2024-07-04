@@ -1,11 +1,12 @@
 # kubeadm-certs
 
-kubeadm-certs 只将 kubeadm 的证书有效期设置为10年，未对源码做任何其他修改。编译脚本见 [.travis.yml](.travis.yml) , CI 见 [![Build Status](https://travis-ci.com/lework/kubeadm-certs.svg?branch=master)](https://travis-ci.com/lework/kubeadm-certs)
+kubeadm-certs 只将 kubeadm 的证书有效期设置为10年，未对源码做任何其他修改。编译脚本见 [.build.yml](.github/workflows/build.yml) , CI 见 
+[![Build](https://github.com/lework/kubeadm-certs/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/lework/kubeadm-certs/actions/workflows/build.yml)
 
 
 ## go 版本
 
-> [编译最低版本源文件](https://github.com/kubernetes/kubernetes/blob/v1.24.0/hack/lib/golang.sh#L483) 
+> [编译最低版本源文件](https://github.com/kubernetes/kubernetes/blob/7c48c2bd72b9bf5c44d21d7338cc7bea77d0ad2a/hack/lib/golang.sh#L541)
 
 ```bash
 v1.15.12 go1.12.1
@@ -19,19 +20,23 @@ v1.22.0  go1.16.0
 v1.23.0  go1.17.0
 v1.24.0  go1.18.1
 v1.25.0  go1.19
+v1.26.0  go1.19
+v1.27.0  go1.20
+v1.28.0  go1.20
+v1.29.0  go1.21
+v1.30.0  go1.22
 ```
 
 ## 证书有效期文件
 
 CA 证书
 
-- https://github.com/kubernetes/kubernetes/blob/v1.21.0/staging/src/k8s.io/client-go/util/cert/cert.go#L38
-- https://github.com/kubernetes/kubernetes/blob/v1.21.0/staging/src/k8s.io/client-go/util/cert/cert.go#L66
+- https://github.com/kubernetes/kubernetes/blob/v1.30.0/staging/src/k8s.io/client-go/util/cert/cert.go#L79-L80
 
 签发证书
 
-- https://github.com/kubernetes/kubernetes/blob/v1.21.0/cmd/kubeadm/app/constants/constants.go#L49
-- https://github.com/kubernetes/kubernetes/blob/v1.21.0/cmd/kubeadm/app/util/pkiutil/pki_helpers.go#L659
+- https://github.com/kubernetes/kubernetes/blob/v1.30.0/cmd/kubeadm/app/constants/constants.go#L48
+- https://github.com/kubernetes/kubernetes/blob/v1.30.0/cmd/kubeadm/app/util/pkiutil/pki_helpers.go#L658
 
 ## 使用
 
